@@ -1,10 +1,20 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../redux/todoSlice";
 
 const TodoAdd = () => {
   const [todo, setTodo] = useState("");
+  const dispatch = useDispatch();
+
   const onsubmit = (e) => {
     e.preventDefault();
-    console.log(todo);
+    if (todo) {
+      dispatch(
+        addTodo({
+          title: todo,
+        })
+      );
+    }
     setTodo("");
   };
   return (
