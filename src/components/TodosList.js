@@ -1,24 +1,10 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import TodoItem from "./TodoItem";
 
 const TodosList = () => {
-  const todos = [
-    {
-      id: 1,
-      title: "todo1",
-      complete: false,
-    },
-    {
-      id: 2,
-      title: "todo2",
-      complete: false,
-    },
-    {
-      id: 3,
-      title: "todo3",
-      complete: true,
-    },
-  ];
+  const dispatch = useDispatch();
+  const todos = useSelector((state) => state.todos);
 
   return (
     <div>
