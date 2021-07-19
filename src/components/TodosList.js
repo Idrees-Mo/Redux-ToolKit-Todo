@@ -3,20 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import styled from "styled-components";
 import TodoItem from "./TodoItem";
 
-const Container = styled.div`
-  min-height: 60vh;
-  width: 50%;
-`;
+import { Grid } from "@material-ui/core";
 const TodosList = () => {
-  const dispatch = useDispatch();
   const todos = useSelector((state) => state.todos);
-
   return (
-    <Container>
+    <Grid container spacing={1}>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <Grid item xs={12}>
+          <TodoItem key={todo.id} todo={todo} />
+        </Grid>
       ))}
-    </Container>
+    </Grid>
   );
 };
 

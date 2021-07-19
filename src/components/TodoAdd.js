@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/todoSlice";
+import { TextField, Button } from "@material-ui/core";
+import AddCircleOutlineIcon from "@material-ui/icons/AddCircleOutline";
 
 const TodoAdd = () => {
   const [todo, setTodo] = useState("");
@@ -20,15 +22,24 @@ const TodoAdd = () => {
   return (
     <div>
       <form onSubmit={onsubmit}>
-        <label>New Todo</label>
-        <input
-          type="text"
+        <TextField
+          label="New Todo"
+          color="primary"
           name="title"
           value={todo}
-          placeholder="Add new Todo..."
+          fullWidth
           onChange={(e) => setTodo(e.target.value)}
         />
-        <button type="submit">Add Todo</button>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          fullWidth
+          endIcon={<AddCircleOutlineIcon fontSize="large" />}
+          type="submit"
+        >
+          Add Todo
+        </Button>
       </form>
     </div>
   );
